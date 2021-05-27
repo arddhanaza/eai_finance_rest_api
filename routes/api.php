@@ -5,6 +5,8 @@ use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\PengajuanDanaController;
 use App\Http\Controllers\TanggunganController;
 use App\Http\Controllers\DetailPembayaranTanggunganController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\BuktiPebayaranController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
