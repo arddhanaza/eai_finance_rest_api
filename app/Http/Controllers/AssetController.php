@@ -9,7 +9,19 @@ class AssetController extends Controller
 {
     public function index()
     {
-        return asset::all();
+        $assets = asset::all();
+        return response()->json($assets,200);
+    }
+
+    public function show_by_id($id_assets){
+        if (asset::where('id_asset', $id_assets)->exists()) {
+            $asset = asset::where('id_asset', $id_assets)->get();
+            return response($asset, 200);
+        } else {
+            return response()->json([
+                "message" => "Asset not found"
+            ], 404);
+        }
     }
 
     public function create(Request $request)
@@ -23,7 +35,7 @@ class AssetController extends Controller
         $asset->id_divisi = $request->id_divisi;
         $asset->save();
 
-        return '201, Data Berhasil Disimpan';
+        return response()->json($asset, 201);
     }
 
     public function update(Request $request, $id)
@@ -37,7 +49,7 @@ class AssetController extends Controller
         $asset->id_divisi = $request->id_divisi;
         $asset->save();
 
-        return '201, Data Berhasil Diupdate';
+        return response()->json($asset, 200);
     }
 
     public function delete($id)
@@ -45,6 +57,6 @@ class AssetController extends Controller
         $asset = asset::find($id);
         $asset->delete();
 
-        return 'Data Berhasil Dihapus';
+        return response()->json(null, 204);
     }
 }
