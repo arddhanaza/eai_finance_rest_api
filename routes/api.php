@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\PengajuanDanaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,11 @@ Route::get('assets', [AssetController::class, 'index']);
 Route::post('assets', [AssetController::class, 'create']);
 Route::put('assets/{id_asset}', [AssetController::class, 'update']);
 Route::delete('assets/{id_asset}', [AssetController::class, 'delete']);
+
+Route::post('pengajuan_dana', [PengajuanDanaController::class, 'create']);
+Route::get('pengajuan_dana', [PengajuanDanaController::class, 'index']);
+Route::put('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'update']);
+Route::delete('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'delete']);
 
 
 
