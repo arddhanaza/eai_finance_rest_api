@@ -22,7 +22,7 @@ class PengajuanDanaController extends Controller
         $pengajuan_dana->id_divisi = $request->id_divisi;
         $pengajuan_dana->save();
 
-        return '201, Data Berhasil Disimpan';
+        return response()->json(['message'=>'berhasil ditambahkan'],200);
     }
 
     public function update(Request $request, $id)
@@ -35,7 +35,7 @@ class PengajuanDanaController extends Controller
         $pengajuan_dana->id_divisi = $request->id_divisi;
         $pengajuan_dana->save();
 
-        return '201, Data Berhasil Diupdate';
+        return response()->json(['message'=>'berhasil diubah'],200);
     }
 
     public function delete($id)

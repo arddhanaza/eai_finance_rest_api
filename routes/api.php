@@ -48,3 +48,19 @@ Route::post('pengajuan_dana', [PengajuanDanaController::class, 'create']);
 Route::get('pengajuan_dana', [PengajuanDanaController::class, 'index']);
 Route::put('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'update']);
 Route::delete('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'delete']);
+
+
+Route::post('pengajuan_dana', [PengajuanDanaController::class, 'create']);
+Route::get('pengajuan_dana', [PengajuanDanaController::class, 'index']);
+Route::put('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'update']);
+Route::delete('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'delete']);
+
+Route::post('bukti_pembayaran', [BuktiPebayaranController::class, 'create']);
+Route::get('bukti_pembayaran', [BuktiPebayaranController::class, 'index']);
+Route::put('bukti_pembayaran/{id_pembayaran}', [BuktiPebayaranController::class, 'update']);
+Route::delete('bukti_pembayaran/{id_pembayaran}', [BuktiPebayaranController::class, 'delete']);
+
+Route::post('transaksi', [TransaksiController::class, 'create']);
+Route::get('transaksi', [TransaksiController::class, 'index']);
+Route::put('transaksi/{id_transaksi}', [TransaksiController::class, 'update']);
+Route::delete('transaksi/{id_transaksi}', [TransaksiController::class, 'delete']);
