@@ -26,7 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('divisi', [DivisiController::class, 'index']);
 
 Route::get('assets', [AssetController::class, 'index']);
-Route::post('assets', [AssetController::class, 'create']);
+Route::post('assets', [AssetController::class, 'create'])->name('api_tambah_asset');
 Route::put('assets/{id_asset}', [AssetController::class, 'update']);
 Route::delete('assets/{id_asset}', [AssetController::class, 'delete']);
 Route::get('assets/{id_asset}',[AssetController::class,'show_by_id']);
