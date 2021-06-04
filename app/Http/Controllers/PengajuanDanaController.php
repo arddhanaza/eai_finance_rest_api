@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\divisi;
 use App\Models\pengajuan_dana;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,8 @@ class PengajuanDanaController extends Controller
 {
     public function index()
     {
+        // $pengajuan_dana = pengajuan_dana::latest()->paginate(5);
+        // return view('data_pengajuan', compact('pengajuan_dana'))->with('i', (request()->input('page', 1) - 1) * 5);
         return pengajuan_dana::all();
     }
 
@@ -44,5 +47,10 @@ class PengajuanDanaController extends Controller
         $pengajuan_dana->delete();
 
         return 'Data Berhasil Dihapus';
+    }
+
+    public function tambah($divisi){
+        $divisi = divisi::where('nama_divisi',$divisi)->firstOrFail();
+        return view('buat_pengajuan',['divisi'=>$divisi]);
     }
 }
