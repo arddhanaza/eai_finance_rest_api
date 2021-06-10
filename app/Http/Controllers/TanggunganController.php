@@ -72,4 +72,8 @@ class TanggunganController extends Controller
         return response()->json(['Message'=>'Tanggungan Dihapus'],204);
     }
 
+    public function get_data_tanggungan(){
+        $tanggungan = tanggungan::get_data_tanggungan();
+        return view('pembayaran_tanggungan.pembayaran_tanggungan',['data_tanggungan'=>$tanggungan]);
+    }
 }

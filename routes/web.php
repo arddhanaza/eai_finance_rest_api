@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PengajuanDanaController;
+use App\Http\Controllers\TanggunganController;
+use App\Http\Controllers\DetailPembayaranTanggunganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +19,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('templates.template');
 });
 Route::get('/asset/{divisi}',[\App\Http\Controllers\AssetController::class,'tambah'])->name('tambah_asset');
 //Route::post('asset/{divisi}',[\App\Http\Controllers\AssetController::class,'save'])->name('save_asset');
 
 Route::get('/pengajuan-dana/{divisi}',[\App\Http\Controllers\PengajuanDanaController::class,'tambah'])->name('buat_pengajuan');
 // Route::get('/pengajuan-dana/all',[\App\Http\Controllers\PengajuanDanaController::class,'index'])->name('api_all_pengajuan');
+
+Route::get('/tanggungan/', [TanggunganController::class,'get_data_tanggungan'])->name('get_data_tanggungan');
