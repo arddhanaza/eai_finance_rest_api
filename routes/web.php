@@ -5,6 +5,7 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PengajuanDanaController;
 use App\Http\Controllers\TanggunganController;
+use App\Http\Controllers\BuktiPebayaranController;
 use App\Http\Controllers\DetailPembayaranTanggunganController;
 
 /*
@@ -28,3 +29,5 @@ Route::get('/pengajuan-dana/{divisi}',[\App\Http\Controllers\PengajuanDanaContro
 // Route::get('/pengajuan-dana/all',[\App\Http\Controllers\PengajuanDanaController::class,'index'])->name('api_all_pengajuan');
 
 Route::get('/tanggungan/', [TanggunganController::class,'get_data_tanggungan'])->name('get_data_tanggungan');
+
+Route::get('/bukti_pembayaran/', [BuktiPebayaranController::class,'get_data_bukti_pembayaran'])->name('get_data_bukti_pembayaran');
