@@ -19,16 +19,26 @@ class PengajuanDanaController extends Controller
     }
 
     public function save_tambah_data_pengajuan(Request $request){
-        $response = Http::post('http://eai-finance.arddhanaaa.com/public/api/tanggungan', [
-            'id_divisi' => $request->id_divisi,
-            'penanggung_jawab' => $request->penanggung_jawab,
-            'nomor_rekening' => $request->nomor_rekening,
-            'keterangan' => $request->keterangan,
-            'tanggal_pengajuan' => $request->tanggal_pengajuan
-        ]);
+        $pengajuan_dana = new pengajuan_dana();
+        $pengajuan_dana->id_divisi = $request->id_divisi;
+        $pengajuan_dana->penanggung_jawab = $request->penanggung_jawab;
+        $pengajuan_dana->nomor_rekening = $request->nomor_rekening;
+        $pengajuan_dana->keterangan = $request->keterangan;
+        $pengajuan_dana->tanggal_pengajuan = $request->tanggal_pengajuan;        
+        $pengajuan_dana->save();
         return redirect(route('get_data_pengajuan_dana'));
     }
 
+    public function delete_pengajuan($id_pengajuan){
+        $pengajuan_dana = pengajuan_dana::find($id_pengajuan);
+        $pengajuan_dana->delete();
+
+        // return 'Data Berhasil Dihapus';
+        return redirect(route('get_data_pengajuan_dana'));
+    }
+
+
+    // ----------
     public function index()
     {
         // $pengajuan_dana = pengajuan_dana::latest()->paginate(5);
@@ -39,11 +49,11 @@ class PengajuanDanaController extends Controller
     public function create(Request $request)
     {
         $pengajuan_dana = new pengajuan_dana();
+        $pengajuan_dana->id_divisi = $request->id_divisi;
         $pengajuan_dana->penanggung_jawab = $request->penanggung_jawab;
         $pengajuan_dana->nomor_rekening = $request->nomor_rekening;
         $pengajuan_dana->keterangan = $request->keterangan;
-        $pengajuan_dana->tanggal_pengajuan = $request->tanggal_pengajuan;
-        $pengajuan_dana->id_divisi = $request->id_divisi;
+        $pengajuan_dana->tanggal_pengajuan = $request->tanggal_pengajuan;        
         $pengajuan_dana->save();
 
         return response()->json(['message'=>'berhasil ditambahkan'],200);

@@ -63,7 +63,7 @@
                                     <td>
                                         <a href=""
                                            type="button" class="btn-sm btn-warning">Edit</a>
-                                        <a href=""
+                                        <a href="{{route('delete_pengajuan',$pd->id_pengajuan)}}"
                                            onclick="return confirm('Apakah Anda Yakin?')" type="button"
                                            class="btn-sm btn-danger">Hapus</a>
                                     </td>
