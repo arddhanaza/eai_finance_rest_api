@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\bukti_pebayaran;
+use App\Models\transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use phpDocumentor\Reflection\Types\True_;
 
 class BuktiPebayaranController extends Controller
 {
     //
     public function index()
     {
-        return bukti_pebayaran::all();
+        $bukti_pembayaran = bukti_pebayaran::get_data_bukti_pembayaran();
+        return response()->json($bukti_pembayaran,200);
     }
 
     public function create(Request $request)
@@ -46,7 +50,12 @@ class BuktiPebayaranController extends Controller
     }
 
     public function get_data_bukti_pembayaran(){
-        $bukti_pembayaran = bukti_pebayaran::get_data_bukti_pembayaran();
+        $bukti_pembayaran = Http::get('http://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran')->object();
         return view('bukti_pembayaran.bukti_pembayaran',['data_bukti_pembayaran'=>$bukti_pembayaran]);
+    }
+
+    public function tambah_data_bukti_pembayaran(){
+        $transaksi = Http::get('http://eai-finance.arddhanaaa.com/public/api/transaksi')->object();
+        return view('bukti_pembayaran.tambah_bukti_pembayaran',['data_transaksi'=>$transaksi]);
     }
 }

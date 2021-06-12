@@ -32,7 +32,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col text-left">
-                                <a href="" class="btn btn- btn-default">Tambah Bukti Pembayaran</a>
+                                <a href="{{route('view_tambah_bukti_pembayaran')}}" class="btn btn- btn-default">Tambah Bukti Pembayaran</a>
                             </div>
                         </div>
                     </div>

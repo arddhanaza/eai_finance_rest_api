@@ -32,4 +32,6 @@ Route::get('/tanggungan/', [TanggunganController::class,'get_data_tanggungan'])-
 Route::get('/tanggungan/tambah',[TanggunganController::class,'tambah_data_tanggungan'])->name('view_tambah_tanggungan');
 Route::post('/tanggungan/tambah/save',[TanggunganController::class,'save_tambah_data_tanggungan'])->name('save_tambah_tanggungan');
 
+
 Route::get('/bukti_pembayaran/', [BuktiPebayaranController::class,'get_data_bukti_pembayaran'])->name('get_data_bukti_pembayaran');
+Route::get('/bukti_pembayaran/tambah',[BuktiPebayaranController::class,'tambah_data_bukti_pembayaran'])->name('view_tambah_bukti_pembayaran');
