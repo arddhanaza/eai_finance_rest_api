@@ -32,7 +32,7 @@ class TanggunganController extends Controller
     public function show_by_asset($id_asset)
     {
         if (tanggungan::where('id_asset', $id_asset)->exists()) {
-            $tanggungan = tanggungan::where('id_asset', $id_asset)->get();
+            $tanggungan = tanggungan::where('id_asset', $id_asset);
             return response($tanggungan, 200);
         } else {
             return response()->json([
@@ -111,6 +111,7 @@ class TanggunganController extends Controller
     public function update_data_tanggungan($id_tanggungan)
     {
         $tanggungan = Http::get('http://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan)->json();
+        dd($tanggungan);
         $key = key($tanggungan);
         $tanggungan = (object) $tanggungan[$key];
 
