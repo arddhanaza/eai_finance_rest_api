@@ -11,16 +11,9 @@
             <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                 <!-- Nav items -->
                 <ul class="navbar-nav">
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link disabled  {{ Route::is('api_list') ? 'active' : '' }}"--}}
-{{--                           href="{{route('')}}">--}}
-{{--                            <i class="ni ni-tv-2 text-primary"></i>--}}
-{{--                            <span class="nav-link-text">API List</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
                     <li class="nav-item">
-                        <a class="nav-link disabled  "
-                           href="">
+                        <a class="nav-link  {{ Route::is('api_list') ? 'active' : '' }}"
+                           href="{{route('api_list')}}">
                             <i class="ni ni-tv-2 text-primary"></i>
                             <span class="nav-link-text">API List</span>
                         </a>
@@ -33,15 +26,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('get_data_bukti_pembayaran') ? 'active' : '' }}" 
+                        <a class="nav-link {{ Route::is('get_data_bukti_pembayaran') ? 'active' : '' }}"
                            href="{{route('get_data_bukti_pembayaran')}}">
                             <i class="ni ni-paper-diploma text-primary"></i>
                             <span class="nav-link-text">Bukti Pembayaran</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="">
+                        <a class="nav-link {{ Route::is('get_data_pengajuan_dana') ? 'active' : '' }}"
+                           href="{{route('get_data_pengajuan_dana')}}">
                             <i class="ni ni-paper-diploma text-primary"></i>
                             <span class="nav-link-text">Pengajuan Dana</span>
                         </a>

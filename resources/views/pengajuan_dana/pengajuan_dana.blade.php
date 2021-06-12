@@ -1,5 +1,5 @@
 @extends('templates.template')
-@section('title','Pembayaran Tanggungan')
+@section('title','Pengajuan Dana')
 @section('header')
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
@@ -9,7 +9,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="#">Data Tanggungan</a></li>
+                                <li class="breadcrumb-item"><a href="#">Data Pengajuan Dana</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -32,8 +32,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col text-left">
-                                <a href="{{route('view_tambah_tanggungan')}}" class="btn btn- btn-default">Tambah Data
-                                    Tanggungan</a>
+                                <a href="{{route('view_tambah_pengajuan')}}" class="btn btn- btn-default">Tambah Pengajuan Dana</a>
                             </div>
                         </div>
                     </div>
@@ -45,32 +44,26 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Divisi</th>
-                                <th scope="col">Nama Asset</th>
-                                <th scope="col">Status Tanggungan</th>
-                                <th scope="col">Tujuan Tanggungan</th>
-                                <th scope="col">Total Tanggungan</th>
+                                <th scope="col">Penanggung Jawab</th>
+                                <th scope="col">Keterangan</th>
+                                <th scope="col">Nomor Rekening</th>
+                                <th scope="col">Tanggal Pengajuan</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                             </thead>
                             <tbody class="list">
-                            @foreach($data_tanggungan as $dt)
+                            @foreach($data_pengajuan_dana as $pd)
                                 <tr>
                                     <td class="budget">{{$loop->index+1}}</td>
-                                    <td>{{$dt->nama_divisi}}</td>
-                                    <td>{{$dt->nama_asset}}</td>
-                                    <td>{{$dt->status_tanggungan}}</td>
-                                    <td>{{$dt->tujuan_tanggungan}}</td>
-                                    <td>{{$dt->total_tanggungan}}</td>
+                                    <td>{{$pd->nama_divisi}}</td>
+                                    <td>{{$pd->penanggung_jawab}}</td>
+                                    <td>{{$pd->keterangan}}</td>
+                                    <td>{{$pd->nomor_rekening}}</td>
+                                    <td>{{$pd->tanggal_pengajuan}}</td>
                                     <td>
-                                        @if($dt->status_tanggungan == "")
-                                            <a href="{{route('bayar_tanggungan',$dt->id_tanggungan)}}"
-                                               type="button" class="btn-sm btn-primary">Bayar</a>
-                                        @endif
-                                        @if($dt->status_tanggungan != "Lunas")
-                                            <a href="{{route('update_data_tanggungan',$dt->id_tanggungan)}}"
-                                               type="button" class="btn-sm btn-warning">Edit</a>
-                                        @endif
-                                        <a href="{{route('delete_tanggungan',$dt->id_tanggungan)}}"
+                                        <a href=""
+                                           type="button" class="btn-sm btn-warning">Edit</a>
+                                        <a href=""
                                            onclick="return confirm('Apakah Anda Yakin?')" type="button"
                                            class="btn-sm btn-danger">Hapus</a>
                                     </td>
