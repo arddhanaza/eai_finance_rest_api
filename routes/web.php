@@ -19,9 +19,7 @@ use App\Http\Controllers\DetailPembayaranTanggunganController;
 |
 */
 
-Route::get('/', function () {
-    return view('templates.template');
-})->name('api_list');
+Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('api_list');
 Route::get('/asset/{divisi}',[\App\Http\Controllers\AssetController::class,'tambah'])->name('tambah_asset');
 //Route::post('asset/{divisi}',[\App\Http\Controllers\AssetController::class,'save'])->name('save_asset');
 
