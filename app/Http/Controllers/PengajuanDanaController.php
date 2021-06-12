@@ -8,6 +8,27 @@ use Illuminate\Http\Request;
 
 class PengajuanDanaController extends Controller
 {
+    public function get_data_pengajuan_dana(){
+        $pengajuan_dana = pengajuan_dana::get_data_pengajuan_dana();
+        return view('pengajuan_dana.pengajuan_dana',['data_pengajuan_dana'=>$pengajuan_dana]);
+    }
+
+    public function tambah_data_pengajuan(){        
+        $divisi = divisi::all();
+        return view('pengajuan_dana.tambah_data_pengajuan', ['data_divisi'=>$divisi]);
+    }
+
+    public function save_tambah_data_pengajuan(Request $request){
+        $response = Http::post('http://eai-finance.arddhanaaa.com/public/api/tanggungan', [
+            'id_divisi' => $request->id_divisi,
+            'penanggung_jawab' => $request->penanggung_jawab,
+            'nomor_rekening' => $request->nomor_rekening,
+            'keterangan' => $request->keterangan,
+            'tanggal_pengajuan' => $request->tanggal_pengajuan
+        ]);
+        return redirect(route('get_data_pengajuan_dana'));
+    }
+
     public function index()
     {
         // $pengajuan_dana = pengajuan_dana::latest()->paginate(5);
