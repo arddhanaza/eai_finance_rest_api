@@ -20,7 +20,7 @@ class TanggunganController extends Controller
     public function show_by_id($id_tanggungan)
     {
         if (tanggungan::where('id_tanggungan', $id_tanggungan)->exists()) {
-            $tanggungan = tanggungan::get_data_tanggungan()->where('id_tanggungan', $id_tanggungan)->get();
+            $tanggungan = tanggungan::get_data_tanggungan()->where('id_tanggungan', $id_tanggungan);
             return response($tanggungan, 200);
         } else {
             return response()->json([
@@ -32,7 +32,7 @@ class TanggunganController extends Controller
     public function show_by_asset($id_asset)
     {
         if (tanggungan::where('id_asset', $id_asset)->exists()) {
-            $tanggungan = asset::where('id_asset', $id_asset)->get();
+            $tanggungan = tanggungan::where('id_asset', $id_asset)->get();
             return response($tanggungan, 200);
         } else {
             return response()->json([

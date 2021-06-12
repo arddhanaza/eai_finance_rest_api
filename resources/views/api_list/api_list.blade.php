@@ -78,13 +78,13 @@
                             </li>
                             <li class="list-group-item">GET BY ID TANGGUNGAN
                                 <ul class="list-group-horizontal-">
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}</a></li>
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/by_id/5">example</a></li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}</a></li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/5">example</a></li>
                                 </ul>
                             </li>
                             <li class="list-group-item">GET BY ID ASSET
                                 <ul class="list-group-horizontal-">
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_asset}</a></li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/{id_asset}">https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/{id_asset}</a></li>
                                     <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/2">example</a></li>
                                 </ul>
                             </li>
@@ -93,7 +93,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 @endsection
 

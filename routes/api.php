@@ -37,7 +37,7 @@ Route::get('tanggungan', [TanggunganController::class, 'index']);
 Route::post('tanggungan', [TanggunganController::class, 'create'])->name('api_tambah_tanggungan');
 Route::put('tanggungan/{id_tanggungan}', [TanggunganController::class, 'update']);
 Route::delete('tanggungan/{id_tanggungan}', [TanggunganController::class, 'delete']);
-Route::get('tanggungan/by_id/{id_tanggungan}', [TanggunganController::class, 'show_by_id']);
+Route::get('tanggungan/{id_tanggungan}', [TanggunganController::class, 'show_by_id']);
 Route::get('tanggungan/asset/{id_asset}', [TanggunganController::class, 'show_by_asset']);
 
 Route::get('detail_tanggungan', [DetailPembayaranTanggunganController::class, 'index']);
