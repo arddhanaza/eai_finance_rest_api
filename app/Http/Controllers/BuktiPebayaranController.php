@@ -10,7 +10,8 @@ class BuktiPebayaranController extends Controller
     //
     public function index()
     {
-        return bukti_pebayaran::all();
+        $bukti_pembayaran = bukti_pebayaran::get_data_bukti_pembayaran();
+        return response()->json($bukti_pembayaran, 200);
     }
 
     public function create(Request $request)
@@ -18,7 +19,7 @@ class BuktiPebayaranController extends Controller
         $bukti_pembayaran = new bukti_pebayaran();
         $bukti_pembayaran->nama_pembayaran = $request->nama_pembayaran;
         $bukti_pembayaran->tanggal_submisi = $request->tanggal_submisi;
-        $bukti_pembayaran->keterangan = $request->keterangan;        
+        $bukti_pembayaran->keterangan = $request->keterangan;
         $bukti_pembayaran->id_transaksi = $request->id_transaksi;
         $bukti_pembayaran->save();
 
@@ -26,11 +27,11 @@ class BuktiPebayaranController extends Controller
     }
 
     public function update(Request $request, $id)
-    {        
+    {
         $bukti_pembayaran = bukti_pebayaran::find($id);
         $bukti_pembayaran->nama_pembayaran = $request->nama_pembayaran;
         $bukti_pembayaran->tanggal_submisi = $request->tanggal_submisi;
-        $bukti_pembayaran->keterangan = $request->keterangan;        
+        $bukti_pembayaran->keterangan = $request->keterangan;
         $bukti_pembayaran->id_transaksi = $request->id_transaksi;
         $bukti_pembayaran->save();
 
