@@ -54,38 +54,75 @@
                         <ul class="list-group">
                             <li class="list-group-item">GET
                                 <ul class="list-group-horizontal-">
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan">https://eai-finance.arddhanaaa.com/public/api/tanggungan</a></li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan">https://eai-finance.arddhanaaa.com/public/api/tanggungan</a>
+                                    </li>
                                     <li><a href="{{route('get_data_tanggungan')}}">example</a></li>
                                 </ul>
                             </li>
                             <li class="list-group-item">POST
                                 <ul class="list-group-horizontal-">
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/">https://eai-finance.arddhanaaa.com/public/api/tanggungan</a></li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/">https://eai-finance.arddhanaaa.com/public/api/tanggungan</a>
+                                    </li>
                                     <li><a href="{{route('get_data_tanggungan')}}">example</a></li>
                                 </ul>
                             </li>
                             <li class="list-group-item">PUT/UPDATE
                                 <ul class="list-group-horizontal-">
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}</a></li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}</a>
+                                    </li>
                                     <li><a href="{{route('get_data_tanggungan')}}">example</a></li>
                                 </ul>
                             </li>
                             <li class="list-group-item">DELETE
                                 <ul class="list-group-horizontal-">
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}</a></li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}</a>
+                                    </li>
                                     <li><a href="{{route('get_data_tanggungan')}}">example</a></li>
                                 </ul>
                             </li>
                             <li class="list-group-item">GET BY ID TANGGUNGAN
                                 <ul class="list-group-horizontal-">
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}</a></li>
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/5">example</a></li>
+                                    <li>
+                                        <a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}">https://eai-finance.arddhanaaa.com/public/api/tanggungan/{id_tanggungan}</a>
+                                    </li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/5">example</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="list-group-item">GET BY ID ASSET
                                 <ul class="list-group-horizontal-">
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/{id_asset}">https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/{id_asset}</a></li>
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/2">example</a></li>
+                                    <li>
+                                        <a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/{id_asset}">https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/{id_asset}</a>
+                                    </li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/asset/2">example</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <!-- Card header -->
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col text-left">
+                                <h1>Proses Bisnis Bukti Pembayaran</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body border-0">
+                        <ul class="list-group">
+                            <li class="list-group-item">GET
+                                <ul class="list-group-horizontal-">
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran">https://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran</a>
+                                    </li>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran">example</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
