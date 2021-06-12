@@ -25,7 +25,10 @@ Route::get('/', function () {
 Route::get('/asset/{divisi}',[\App\Http\Controllers\AssetController::class,'tambah'])->name('tambah_asset');
 //Route::post('asset/{divisi}',[\App\Http\Controllers\AssetController::class,'save'])->name('save_asset');
 
-Route::get('/pengajuan-dana/{divisi}',[\App\Http\Controllers\PengajuanDanaController::class,'tambah'])->name('buat_pengajuan');
+Route::get('/pengajuan_dana/', [PengajuanDanaController::class,'get_data_pengajuan_dana'])->name('get_data_pengajuan_dana');
+Route::get('/pengajuan_dana/tambah',[PengajuanDanaController::class,'tambah_data_pengajuan'])->name('view_tambah_pengajuan');
+Route::post('/pengajuan_dana/tambah/save',[PengajuanDanaController::class,'save_tambah_data_pengajuan'])->name('save_tambah_pengajuan');
+// Route::get('/pengajuan-dana/{divisi}',[\App\Http\Controllers\PengajuanDanaController::class,'tambah'])->name('buat_pengajuan');
 // Route::get('/pengajuan-dana/all',[\App\Http\Controllers\PengajuanDanaController::class,'index'])->name('api_all_pengajuan');
 
 Route::get('/tanggungan/', [TanggunganController::class,'get_data_tanggungan'])->name('get_data_tanggungan');
