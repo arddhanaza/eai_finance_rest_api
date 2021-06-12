@@ -34,7 +34,7 @@ Route::delete('assets/{id_asset}', [AssetController::class, 'delete']);
 Route::get('assets/{id_asset}',[AssetController::class,'show_by_id']);
 
 Route::get('tanggungan', [TanggunganController::class, 'index']);
-Route::post('tanggungan', [TanggunganController::class, 'create']);
+Route::post('tanggungan', [TanggunganController::class, 'create'])->name('api_tambah_tanggungan');
 Route::put('tanggungan/{id_tanggungan}', [TanggunganController::class, 'update']);
 Route::delete('tanggungan/{id_tanggungan}', [TanggunganController::class, 'delete']);
 Route::get('tanggungan/{id_tanggungan}', [TanggunganController::class, 'show_by_id']);

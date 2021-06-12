@@ -20,7 +20,7 @@ use App\Http\Controllers\DetailPembayaranTanggunganController;
 
 Route::get('/', function () {
     return view('templates.template');
-});
+})->name('api_list');
 Route::get('/asset/{divisi}',[\App\Http\Controllers\AssetController::class,'tambah'])->name('tambah_asset');
 //Route::post('asset/{divisi}',[\App\Http\Controllers\AssetController::class,'save'])->name('save_asset');
 
@@ -28,3 +28,5 @@ Route::get('/pengajuan-dana/{divisi}',[\App\Http\Controllers\PengajuanDanaContro
 // Route::get('/pengajuan-dana/all',[\App\Http\Controllers\PengajuanDanaController::class,'index'])->name('api_all_pengajuan');
 
 Route::get('/tanggungan/', [TanggunganController::class,'get_data_tanggungan'])->name('get_data_tanggungan');
+Route::get('/tanggungan/tambah',[TanggunganController::class,'tambah_data_tanggungan'])->name('view_tambah_tanggungan');
+Route::post('/tanggungan/tambah/save',[TanggunganController::class,'save_tambah_data_tanggungan'])->name('save_tambah_tanggungan');

@@ -8,8 +8,9 @@
                     <div class="col-lg-6 col-7">
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="#">Tambah Data Tanggungan</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('api_list')}}"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{route('get_data_tanggungan')}}">Data Tanggungan</a></li>
+                                <li class="breadcrumb-item"><a disabled href="#">Tambah Data Tanggungan</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -31,43 +32,61 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Input Data Pegawai</h3>
+                                <h3 class="mb-0">Input Data Tanggungan</h3>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('tambah_tanggungan')}}" method="post">
+                        <form action="{{route('save_tambah_tanggungan')}}" method="post">
                             @csrf
                             @method("post")
-                            <h6 class="heading-small text-muted mb-4">Data Pegawai</h6>
+                            <h6 class="heading-small text-muted mb-4">Data Tanggungan</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-nomor">Nomor Induk Pegawai</label>
-                                            <input type="number" class="form-control" name="nomor_pegawai"
-                                                   id="input-nomor" required minlength="5">
+                                            <label class="form-control-label" for="status_tanggungan">Status Tanggungan</label>
+                                            <input type="text" class="form-control" name="status_tanggungan"
+                                                   id="status_tanggungan" required value="Belum Lunas" readonly>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-nama">Nama Pegawai</label>
-                                            <input type="text" class="form-control" name="nama_pegawai"
-                                                   id="input-nama" required>
+                                            <label class="form-control-label" for="periode_tanggungan">Periode Tanggungan</label>
+                                            <input type="text" class="form-control" name="periode_tanggungan"
+                                                   id="periode_tanggungan" required value="" placeholder="Januari">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-jabatan">Jabatan</label>
-                                            <select class="form-control form-control" name="jabatan"
-                                                    id="input-jabatan" required>
-                                                @foreach($data_jabatan as $jabatan)
+                                            <label class="form-control-label" for="tujuan_tanggungan">Tujuan Tanggungan</label>
+                                            <input type="text" class="form-control" name="tujuan_tanggungan"
+                                                   id="tujuan_tanggungan" required value="" placeholder="Mandiri">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="total_tanggungan">Total Tanggungan</label>
+                                            <input type="number" class="form-control" name="total_tanggungan"
+                                                   id="total_tanggungan" required value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="id_asset">Nama Asset</label>
+                                            <select class="form-control form-control" name="id_asset"
+                                                    id="input-id_asset" required>
+                                                @foreach($data_asset as $asset)
                                                     <option
-                                                        value="{{$jabatan->id_jabatan}}">{{$jabatan->jabatan}}</option>
+                                                        value="{{$asset->id_asset}}">{{$asset->nama_asset}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -83,16 +102,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @if(false)
-                                <h6 class="heading-small text-muted mb-4">Data User Pegawai</h6>
-                                <div class="pl-lg-4">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <span class="text-warning">*Data User akan digenerate secara otomatis dengan default username namalengkap dan password root</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
                         </form>
                     </div>
                 </div>
