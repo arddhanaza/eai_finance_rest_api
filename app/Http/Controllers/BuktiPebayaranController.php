@@ -44,4 +44,9 @@ class BuktiPebayaranController extends Controller
 
         return response()->json($bukti_pembayaran, 201);
     }
+
+    public function get_data_bukti_pembayaran(){
+        $bukti_pembayaran = bukti_pebayaran::get_data_bukti_pembayaran();
+        return view('bukti_pembayaran.bukti_pembayaran',['data_bukti_pembayaran'=>$bukti_pembayaran]);
+    }
 }

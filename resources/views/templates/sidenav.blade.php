@@ -33,8 +33,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="">
+                        <a class="nav-link {{ Route::is('get_data_bukti_pembayaran') ? 'active' : '' }}" 
+                           href="{{route('get_data_bukti_pembayaran')}}">
                             <i class="ni ni-paper-diploma text-primary"></i>
                             <span class="nav-link-text">Bukti Pembayaran</span>
                         </a>
