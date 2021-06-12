@@ -32,7 +32,8 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col text-left">
-                                <a href="{{route('view_tambah_tanggungan')}}" class="btn btn- btn-default">Tambah Data Tanggungan</a>
+                                <a href="{{route('view_tambah_tanggungan')}}" class="btn btn- btn-default">Tambah Data
+                                    Tanggungan</a>
                             </div>
                         </div>
                     </div>
@@ -61,11 +62,15 @@
                                     <td>{{$dt->tujuan_tanggungan}}</td>
                                     <td>{{$dt->total_tanggungan}}</td>
                                     <td>
-                                        <a href=""
-                                           type="button" class="btn-sm btn-primary">Bayar</a>
-                                        <a href=""
-                                           type="button" class="btn-sm btn-warning">Edit</a>
-                                        <a href=""
+                                        @if($dt->status_tanggungan == "")
+                                            <a href="{{route('bayar_tanggungan',$dt->id_tanggungan)}}"
+                                               type="button" class="btn-sm btn-primary">Bayar</a>
+                                        @endif
+                                        @if($dt->status_tanggungan != "Lunas")
+                                            <a href="{{route('update_data_tanggungan',$dt->id_tanggungan)}}"
+                                               type="button" class="btn-sm btn-warning">Edit</a>
+                                        @endif
+                                        <a href="{{route('delete_tanggungan',$dt->id_tanggungan)}}"
                                            onclick="return confirm('Apakah Anda Yakin?')" type="button"
                                            class="btn-sm btn-danger">Hapus</a>
                                     </td>

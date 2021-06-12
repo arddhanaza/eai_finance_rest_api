@@ -31,5 +31,10 @@ Route::get('/pengajuan-dana/{divisi}',[\App\Http\Controllers\PengajuanDanaContro
 Route::get('/tanggungan/', [TanggunganController::class,'get_data_tanggungan'])->name('get_data_tanggungan');
 Route::get('/tanggungan/tambah',[TanggunganController::class,'tambah_data_tanggungan'])->name('view_tambah_tanggungan');
 Route::post('/tanggungan/tambah/save',[TanggunganController::class,'save_tambah_data_tanggungan'])->name('save_tambah_tanggungan');
+Route::get('/tanggungan/bayar/{id_tanggungan}',[TanggunganController::class,'view_bayar_tanggungan'])->name('bayar_tanggungan');
+Route::post('/tanggungan/bayar/{id_tanggungan}/save',[TanggunganController::class,'save_bayar_tanggungan'])->name('save_bayar_tanggungan');
+Route::get('/tanggungan/edit/{id_tanggungan}',[TanggunganController::class,'update_data_tanggungan'])->name('update_data_tanggungan');
+Route::get('/tanggungan/edit/{id_tanggungan}/save',[TanggunganController::class,'save_update_data_tanggungan'])->name('save_update_data_tanggungan');
+Route::get('tanggungan/delete/{id_tanggungan}',[TanggunganController::class,'delete_tanggungan'])->name('delete_tanggungan');
 
 Route::get('/bukti_pembayaran/', [BuktiPebayaranController::class,'get_data_bukti_pembayaran'])->name('get_data_bukti_pembayaran');
