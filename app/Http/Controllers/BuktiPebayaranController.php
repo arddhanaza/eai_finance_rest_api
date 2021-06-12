@@ -26,7 +26,7 @@ class BuktiPebayaranController extends Controller
         $bukti_pembayaran->id_transaksi = $request->id_transaksi;
         $bukti_pembayaran->save();
 
-        return response()->json(['message'=>'berhasil ditambahkan'],200);
+        return response()->json($bukti_pembayaran, 201);
     }
 
     public function update(Request $request, $id)
@@ -41,12 +41,12 @@ class BuktiPebayaranController extends Controller
         return response()->json($bukti_pembayaran, 201);
     }
 
-    public function delete($id)
+    public function delete($id_pembayaran)
     {
-        $bukti_pembayaran = bukti_pebayaran::find($id);
+        $bukti_pembayaran = bukti_pebayaran::find($id_pembayaran);
         $bukti_pembayaran->delete();
 
-        return response()->json($bukti_pembayaran, 201);
+        return response()->json(['Message' => 'Bukti Pembayaran Dihapus'], 204);
     }
 
     public function get_data_bukti_pembayaran(){
@@ -59,14 +59,18 @@ class BuktiPebayaranController extends Controller
         return view('bukti_pembayaran.tambah_bukti_pembayaran',['data_transaksi'=>$transaksi]);
     }
 
-    public function save_tambah_data_bukti_pembayaran(Request $request){
+    public function save_tambah_data_bukti_pembayaran(Request $request)
+    {
         $response = Http::post('http://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran', [
-            'status_tanggungan' => $request->status_tanggungan,
-            'periode_tanggungan' => $request->periode_tanggungan,
-            'tujuan_tanggungan' => $request->tujuan_tanggungan,
-            'total_tanggungan' => $request->total_tanggungan,
-            'id_asset' => $request->id_asset
+            'nama_pembayaran' => $request->nama_pembayaran,
+            'keterangan' => $request->keterangan,
+            'id_transaksi' => $request->id_transaksi
         ]);
+        return redirect(route('get_data_bukti_pembayaran'));
+    }
+
+    public function delete_bukti_pembayaran($id_pembayaran){
+        $request = Http::delete('http://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran/'.$id_pembayaran);
         return redirect(route('get_data_bukti_pembayaran'));
     }
 }

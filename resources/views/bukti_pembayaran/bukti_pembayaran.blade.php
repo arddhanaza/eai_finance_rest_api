@@ -61,7 +61,7 @@
                                     <td>
                                         <a href=""
                                            type="button" class="btn-sm btn-warning">Edit</a>
-                                        <a href=""
+                                        <a href="{{route('delete_bukti_pembayaran',$dt->id_pembayaran)}}"
                                            onclick="return confirm('Apakah Anda Yakin?')" type="button"
                                            class="btn-sm btn-danger">Hapus</a>
                                     </td>

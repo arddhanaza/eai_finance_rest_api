@@ -39,6 +39,8 @@ Route::get('/tanggungan/edit/{id_tanggungan}/save',[TanggunganController::class,
 Route::get('tanggungan/delete/{id_tanggungan}',[TanggunganController::class,'delete_tanggungan'])->name('delete_tanggungan');
 
 
+//bukti pembayaran
 Route::get('/bukti_pembayaran/', [BuktiPebayaranController::class,'get_data_bukti_pembayaran'])->name('get_data_bukti_pembayaran');
 Route::get('/bukti_pembayaran/tambah',[BuktiPebayaranController::class,'tambah_data_bukti_pembayaran'])->name('view_tambah_bukti_pembayaran');
 Route::post('/bukti_pembayaran/tambah/save',[BuktiPebayaranController::class,'save_tambah_data_bukti_pembayaran'])->name('save_tambah_data_bukti_pembayaran');
+Route::get('bukti_pembayaran/delete/{id_pembayaran}',[BuktiPebayaranController::class,'delete_bukti_pembayaran'])->name('delete_bukti_pembayaran');
