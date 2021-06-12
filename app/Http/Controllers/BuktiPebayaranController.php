@@ -58,4 +58,15 @@ class BuktiPebayaranController extends Controller
         $transaksi = Http::get('http://eai-finance.arddhanaaa.com/public/api/transaksi')->object();
         return view('bukti_pembayaran.tambah_bukti_pembayaran',['data_transaksi'=>$transaksi]);
     }
+
+    public function save_tambah_data_bukti_pembayaran(Request $request){
+        $response = Http::post('http://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran', [
+            'status_tanggungan' => $request->status_tanggungan,
+            'periode_tanggungan' => $request->periode_tanggungan,
+            'tujuan_tanggungan' => $request->tujuan_tanggungan,
+            'total_tanggungan' => $request->total_tanggungan,
+            'id_asset' => $request->id_asset
+        ]);
+        return redirect(route('get_data_bukti_pembayaran'));
+    }
 }
