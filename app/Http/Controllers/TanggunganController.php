@@ -123,7 +123,6 @@ class TanggunganController extends Controller
     public function update_data_tanggungan($id_tanggungan)
     {
         $tanggungan = Http::get('http://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan)->json();
-        dd($tanggungan);
         $key = key($tanggungan);
         $tanggungan = (object) $tanggungan[$key];
 
