@@ -19,8 +19,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"
-                           href="">
+                        <a class="nav-link {{ Route::is('get_data_transaksi') ? 'active' : '' }}"
+                           href="{{ route('get_data_transaksi') }}">
                             <i class="ni ni-bullet-list-67 text-primary"></i>
                             <span class="nav-link-text">Transaksi</span>
                         </a>
