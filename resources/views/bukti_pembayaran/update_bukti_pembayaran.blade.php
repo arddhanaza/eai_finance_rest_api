@@ -9,7 +9,7 @@
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="#">Ubah Bukti Pembayaran</a></li>
+                                <li class="breadcrumb-item"><a href="#">Update Bukti Pembayaran</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -24,54 +24,84 @@
     </div>
 @endsection
 @section('content')
-    {{-- <div class="container-fluid mt--6">
+    <div class="container-fluid mt--6">
         <div class="row">
-            <div class="col">
+            <div class="col-xl-12 order-xl-1">
                 <div class="card">
-                    <!-- Card header -->
-                    <div class="card-header border-0">
+                    <div class="card-header">
                         <div class="row align-items-center">
-                            <div class="col text-left">
-                                <a href="" class="btn btn- btn-default">Tambah Bukti Pembayaran</a>
+                            <div class="col-8">
+                                <h3 class="mb-0">Update Bukti Pembayaran</h3>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Light table -->
-                    <div class="table-responsive py-4">
-                        <table class="table align-items-center table-flush" id="datatable-buttons">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nama Pembayaran</th>
-                                <th scope="col">Divisi</th>
-                                <th scope="col">Tanggal Sumbmisi</th>
-                                <th scope="col">Keterangan</th>
-                                <th scope="col">Aksi</th>
-                            </tr>
-                            </thead>
-                            <tbody class="list">
-                            @foreach($data_bukti_pembayaran as $dt)
-                                <tr>
-                                    <td class="budget">{{$loop->index+1}}</td>
-                                    <td>{{$dt->nama_pembayaran}}</td>
-                                    <td>{{$dt->nama_divisi}}</td>
-                                    <td>{{$dt->tanggal_submisi}}</td>
-                                    <td>{{$dt->keterangan}}</td>
-                                    <td>
-                                        <a href=""
-                                           type="button" class="btn-sm btn-warning">Edit</a>
-                                        <a href=""
-                                           onclick="return confirm('Apakah Anda Yakin?')" type="button"
-                                           class="btn-sm btn-danger">Hapus</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                    <div class="card-body">
+                        <form action="{{route('save_update_data_bukti_pembayaran',$data_bukti_pembayaran->id_pembayaran)}}" method="put">
+                            @csrf
+                            @method('put')
+                            <h6 class="heading-small text-muted mb-4">Data Bukti Pembayaran</h6>
+                            <div class="pl-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="nama_pembayaran">Nama Pembayaran</label>
+                                            <input type="text" class="form-control" name="nama_pembayaran" id="nama_pembayaran">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="periode_tanggungan">Periode Tanggungan</label>
+                                            <input type="text" class="form-control" name="periode_tanggungan"
+                                                   id="periode_tanggungan" required value="{{$data_tanggungan->periode_tanggungan}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="tujuan_tanggungan">Tujuan Tanggungan</label>
+                                            <input type="text" class="form-control" name="tujuan_tanggungan"
+                                                   id="tujuan_tanggungan" required value="{{$data_tanggungan->tujuan_tanggungan}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="total_tanggungan">Total Tanggungan</label>
+                                            <input type="number" class="form-control" name="total_tanggungan"
+                                                   id="total_tanggungan" value="{{$data_tanggungan->total_tanggungan}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="id_asset">Nama Asset</label>
+                                            <input type="hidden" class="form-control" name="id_asset"
+                                                   id="id_asset" value="{{$data_tanggungan->id_asset}}" readonly>
+                                            <input type="text" class="form-control" name=""
+                                                   id="" value="{{$data_tanggungan->nama_asset}}" readonly>
+                                            <input type="hidden" name="id_divisi" value="{{$data_tanggungan->id_divisi}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <div class="col-12 text-right">
+                                                <button class="btn btn-sm btn-primary" type="submit">Update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 @endsection

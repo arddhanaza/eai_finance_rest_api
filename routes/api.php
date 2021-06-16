@@ -61,6 +61,7 @@ Route::post('bukti_pembayaran', [BuktiPebayaranController::class, 'create']);
 Route::get('bukti_pembayaran', [BuktiPebayaranController::class, 'index']);
 Route::put('bukti_pembayaran/{id_pembayaran}', [BuktiPebayaranController::class, 'update']);
 Route::delete('bukti_pembayaran/{id_pembayaran}', [BuktiPebayaranController::class, 'delete']);
+Route::get('bukti_pembayaran/{id_pembayaran}', [BuktiPebayaranController::class, 'show_by_id']);
 
 Route::post('transaksi', [TransaksiController::class, 'create']);
 Route::get('transaksi', [TransaksiController::class, 'index']);

@@ -59,7 +59,7 @@
                                     <td>{{$dt->tanggal_submisi}}</td>
                                     <td>{{$dt->keterangan}}</td>
                                     <td>
-                                        <a href=""
+                                        <a href="{{route('update_data_bukti_pembayaran',$dt->id_pembayaran)}}"
                                            type="button" class="btn-sm btn-warning">Edit</a>
                                         <a href="{{route('delete_bukti_pembayaran',$dt->id_pembayaran)}}"
                                            onclick="return confirm('Apakah Anda Yakin?')" type="button"
