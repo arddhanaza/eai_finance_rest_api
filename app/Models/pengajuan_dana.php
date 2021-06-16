@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class pengajuan_dana extends Model
 {
     use HasFactory;
-    protected $table = 'pengajuan_dana';
+    protected $table = 'pengajuan_danas';
     protected $primaryKey = 'id_pengajuan';
 
     public static function get_data_pengajuan_dana()
