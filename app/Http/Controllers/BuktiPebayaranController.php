@@ -21,7 +21,7 @@ class BuktiPebayaranController extends Controller
     {
         if (bukti_pebayaran::where('id_pembayaran', $id_pembayaran)->exists()) {
             $bukti_pembayaran = bukti_pebayaran::get_data_bukti_pembayaran()->where('id_pembayaran', $id_pembayaran);
-            return response($id_pembayaran, 200);
+            return response($bukti_pembayaran, 200);
         } else {
             return response()->json([
                 "message" => "Bukti pembayaran not found"
@@ -64,6 +64,7 @@ class BuktiPebayaranController extends Controller
 
     public function get_data_bukti_pembayaran(){
         $bukti_pembayaran = Http::get('http://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran')->object();
+        
         return view('bukti_pembayaran.bukti_pembayaran',['data_bukti_pembayaran'=>$bukti_pembayaran]);
     }
 
@@ -85,7 +86,7 @@ class BuktiPebayaranController extends Controller
     public function update_data_bukti_pembayaran($id_pembayaran)
     {
         $bukti_pembayaran = Http::get('http://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran/'.$id_pembayaran)->json();
-        dd($bukti_pembayaran);
+        // dd($bukti_pembayaran);
         $key = key($bukti_pembayaran);
         $bukti_pembayaran = (object) $bukti_pembayaran[$key];
     

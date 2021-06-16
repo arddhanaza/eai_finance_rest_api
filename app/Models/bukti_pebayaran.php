@@ -16,7 +16,7 @@ class bukti_pebayaran extends Model
     {
         $data = DB::table('bukti_pembayarans')
             ->select('bukti_pembayarans.id_pembayaran', 'nama_pembayaran', 'tanggal_submisi', 'keterangan',
-                'bukti_pembayarans.id_transaksi', 'divisis.nama_divisi', 'divisis.id_divisi')
+                'bukti_pembayarans.id_transaksi','transaksis.tipe_transaksi', 'divisis.nama_divisi', 'divisis.id_divisi')
             ->join('transaksis', 'transaksis.id_transaksi', '=', 'bukti_pembayarans.id_transaksi')
             ->join('divisis', 'divisis.id_divisi', '=', 'transaksis.id_divisi')
             ->get();

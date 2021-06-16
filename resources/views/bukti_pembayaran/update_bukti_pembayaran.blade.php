@@ -44,47 +44,37 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
+                                            <label class="form-control-label" for="nama_divisi">Nama Divisi</label>
+                                            <input type="text" class="form-control" name="nama_divisi" id="nama_divisi" value="{{$data_bukti_pembayaran->nama_divisi}} "readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <label class="form-control-label" for="nama_pembayaran">Nama Pembayaran</label>
-                                            <input type="text" class="form-control" name="nama_pembayaran" id="nama_pembayaran">
+                                            <input type="text" class="form-control" name="nama_pembayaran" id="nama_pembayaran" value="{{$data_bukti_pembayaran->nama_pembayaran}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="periode_tanggungan">Periode Tanggungan</label>
-                                            <input type="text" class="form-control" name="periode_tanggungan"
-                                                   id="periode_tanggungan" required value="{{$data_tanggungan->periode_tanggungan}}">
+                                            <label class="form-control-label" for="keterangan">Keterangan</label>
+                                            <input type="text" class="form-control" name="keterangan" id="keterangan"  value="{{$data_bukti_pembayaran->nama_pembayaran}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="tujuan_tanggungan">Tujuan Tanggungan</label>
-                                            <input type="text" class="form-control" name="tujuan_tanggungan"
-                                                   id="tujuan_tanggungan" required value="{{$data_tanggungan->tujuan_tanggungan}}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="total_tanggungan">Total Tanggungan</label>
-                                            <input type="number" class="form-control" name="total_tanggungan"
-                                                   id="total_tanggungan" value="{{$data_tanggungan->total_tanggungan}}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="id_asset">Nama Asset</label>
-                                            <input type="hidden" class="form-control" name="id_asset"
-                                                   id="id_asset" value="{{$data_tanggungan->id_asset}}" readonly>
+                                            <label class="form-control-label" for="id_transaksi">Tipe Transaksi</label>
+                                            <input type="hidden" class="form-control" name="id_transaksi"
+                                                   id="id_transaksi" value="{{$data_bukti_pembayaran->id_transaksi}}" readonly>
                                             <input type="text" class="form-control" name=""
-                                                   id="" value="{{$data_tanggungan->nama_asset}}" readonly>
-                                            <input type="hidden" name="id_divisi" value="{{$data_tanggungan->id_divisi}}">
+                                                   id="" value="{{$data_bukti_pembayaran->tipe_transaksi}}" readonly>
+                                            <input type="hidden" name="id_divisi" value="{{$data_bukti_pembayaran->id_divisi}}">
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
