@@ -54,4 +54,6 @@ Route::get('bukti_pembayaran/delete/{id_pembayaran}',[BuktiPebayaranController::
 Route::get('/transaksi', [TransaksiController::class, 'get_data_transaksi'])->name('get_data_transaksi');
 Route::get('/transaksi/tambah', [TransaksiController::class, 'tambah_data_transaksi'])->name('view_tambah_transaksi');
 Route::post('/transaksi/tambah', [TransaksiController::class, 'save_tambah_data_transaksi'])->name('save_tambah_transaksi');
+Route::get('/transaksi/edit/{id_transaksi}', [TransaksiController::class, 'update_data_transaksi'])->name('update_data_transaksi');
+Route::get('/transaksi/edit/{id_transaksi}/save', [TransaksiController::class, 'save_update_data_transaksi'])->name('save_update_data_transaksi');
 Route::get('/transaksi/delete/{id_transaksi}', [TransaksiController::class, 'delete_transaksi'])->name('delete_transaksi');
