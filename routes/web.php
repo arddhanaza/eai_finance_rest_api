@@ -26,6 +26,9 @@ Route::get('/asset/{divisi}',[\App\Http\Controllers\AssetController::class,'tamb
 Route::get('/pengajuan_dana/', [PengajuanDanaController::class,'get_data_pengajuan_dana'])->name('get_data_pengajuan_dana');
 Route::get('/pengajuan_dana/tambah',[PengajuanDanaController::class,'tambah_data_pengajuan'])->name('view_tambah_pengajuan');
 Route::post('/pengajuan_dana/tambah/save',[PengajuanDanaController::class,'save_tambah_data_pengajuan'])->name('save_tambah_pengajuan');
+Route::get('/pengajuan_dana/delete/{id_pengajuan}',[PengajuanDanaController::class,'delete_pengajuan'])->name('delete_pengajuan');
+Route::get('/pengajuan_dana/edit/{id_pengajuan}',[PengajuanDanaController::class,'update_data_pengajuan'])->name('update_data_pengajuan');
+Route::get('/pengajuan_dana/edit/{id_pengajuan}/save',[PengajuanDanaController::class,'save_update_data_pengajuan'])->name('save_update_data_pengajuan');
 // Route::get('/pengajuan-dana/{divisi}',[\App\Http\Controllers\PengajuanDanaController::class,'tambah'])->name('buat_pengajuan');
 // Route::get('/pengajuan-dana/all',[\App\Http\Controllers\PengajuanDanaController::class,'index'])->name('api_all_pengajuan');
 

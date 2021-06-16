@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('save_tambah_pengajuan')}}" method="post">
+                    <form action="{{route('api_buat_pengajuan')}}" method="post">
                         @csrf
                         @method("post")
                         <h6 class="heading-small text-muted mb-4">Pengajuan Dana</h6>

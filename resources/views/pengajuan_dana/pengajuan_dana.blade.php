@@ -61,9 +61,9 @@
                                     <td>{{$pd->nomor_rekening}}</td>
                                     <td>{{$pd->tanggal_pengajuan}}</td>
                                     <td>
-                                        <a href=""
-                                           type="button" class="btn-sm btn-warning">Edit</a>
-                                        <a href=""
+                                        <a href="{{route('update_data_pengajuan',$pd->id_pengajuan)}}"
+                                           type="button" class="btn-sm btn-warning">Edit</a>                                          
+                                        <a href="{{route('delete_pengajuan',$pd->id_pengajuan)}}"
                                            onclick="return confirm('Apakah Anda Yakin?')" type="button"
                                            class="btn-sm btn-danger">Hapus</a>
                                     </td>
