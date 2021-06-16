@@ -62,6 +62,29 @@ class TransaksiController extends Controller
         return redirect(route('get_data_transaksi'));
     }
 
+    public function update_data_transaksi($id_transaksi)
+    {
+        $transaksi = Http::get('http://eai-finance.arddhanaaa.com/public/api/transaksi/' . $id_transaksi)->json();
+        $key = key($transaksi);
+        $transaksi = (object) $transaksi[$key];
+
+        return view('transaksi.update_data_transaksi', ['transaksi' => $transaksi]);
+    }
+
+    public function save_update_data_transaksi(Request $request, $id_transaksi)
+    {
+        $transaksi = Http::put('http://eai-finance.arddhanaaa.com/public/api/transaksi/'.$id_transaksi, [
+        'tipe_transaksi' => $request->tipe_transaksi,
+        'total' => $request->total,
+        'waktu_transaksi' => $request->waktu_transaksi,
+        'deskripsi' => $request->deskripsi,
+        'bukti_invoice' => $request->bukti_invoice,
+        'id_divisi' => $request->id_divisi,
+        ])->status();
+
+        return redirect(route('get_data_transaksi'));
+    }
+
     public function delete_transaksi($id_transaksi)
     {
         $request = Http::delete('http://eai-finance.arddhanaaa.com/public/api/transaksi/'.$id_transaksi);
