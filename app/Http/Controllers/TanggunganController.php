@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\asset;
+use App\Models\divisi;
 use App\Models\tanggungan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -35,6 +36,17 @@ class TanggunganController extends Controller
             $tanggungan = tanggungan::where('id_asset', $id_asset);
             return response($tanggungan, 200);
         } else {
+            return response()->json([
+                "message" => "Tanggungan not found"
+            ], 404);
+        }
+    }
+
+    public function show_by_divisi($nama_divisi){
+        if (divisi::where('nama_divisi',$nama_divisi)->exists()){
+            $tanggungan = tanggungan::get_by_divisi($nama_divisi);
+            return response($tanggungan,200);
+        }else{
             return response()->json([
                 "message" => "Tanggungan not found"
             ], 404);
