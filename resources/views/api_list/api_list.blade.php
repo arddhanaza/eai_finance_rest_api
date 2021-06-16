@@ -153,7 +153,7 @@
                                     </li>
                                     <li><a href="{{route('get_data_bukti_pembayaran')}}">example</a></li>
                                 </ul>
-                                <span class="text-warning">*{id_asset} diganti dengan id_pembayaran</span>
+                                <span class="text-warning">*{id_pembayaran} diganti dengan id_pembayaran</span>
                             </li>
                         </ul>
                     </div>
