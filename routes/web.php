@@ -47,3 +47,10 @@ Route::get('/bukti_pembayaran/', [BuktiPebayaranController::class,'get_data_bukt
 Route::get('/bukti_pembayaran/tambah',[BuktiPebayaranController::class,'tambah_data_bukti_pembayaran'])->name('view_tambah_bukti_pembayaran');
 Route::post('/bukti_pembayaran/tambah/save',[BuktiPebayaranController::class,'save_tambah_data_bukti_pembayaran'])->name('save_tambah_data_bukti_pembayaran');
 Route::get('bukti_pembayaran/delete/{id_pembayaran}',[BuktiPebayaranController::class,'delete_bukti_pembayaran'])->name('delete_bukti_pembayaran');
+
+
+// Daftar Transaksi
+Route::get('/transaksi', [TransaksiController::class, 'get_data_transaksi'])->name('get_data_transaksi');
+Route::get('/transaksi/tambah', [TransaksiController::class, 'tambah_data_transaksi'])->name('view_tambah_transaksi');
+Route::post('/transaksi/tambah', [TransaksiController::class, 'save_tambah_data_transaksi'])->name('save_tambah_transaksi');
+Route::get('/transaksi/delete/{id_transaksi}', [TransaksiController::class, 'delete_transaksi'])->name('delete_transaksi');
