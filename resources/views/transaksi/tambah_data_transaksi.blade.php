@@ -63,7 +63,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="id_divisi">Divisi</label>
-                                            <select class="form-control" id="id_divisi" name="id_divisi">
+                                            <select class="form-control" id="id_divisi" name="id_divisi" required>
                                                 <option value="1">Finance</option>
                                                 <option value="2">Procurement</option>
                                                 <option value="3">Warehouse</option>
@@ -76,7 +76,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="waktu_transaksi">Waktu Transaksi</label>
-                                            <input type="datetime-local" class="form-control" pattern="[0-9]{4}:[0-9]{2}:[0-9]{2}T[0-9]{2}:[0-9]{2}" id="example-datetime-local-input">
+                                            <input type="datetime-local" class="form-control" pattern="[0-9]{4}:[0-9]{2}:[0-9]{2}T[0-9]{2}:[0-9]{2}" id="waktu_transaksi" name="waktu_transaksi" required>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="total">Total Transaksi</label>
-                                            <input type="number" class="form-control" name="total" id="total" required placeholder="175000">
+                                            <input type="number" class="form-control" name="total" id="total" placeholder="175000" required>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="bukti_invoice">Bukti Transaksi</label>
-                                            <input type="text" class="form-control" name="bukti_invoice" id="bukti_invoice" required placeholder="url to invoice document">
+                                            <input type="text" class="form-control" name="bukti_invoice" id="bukti_invoice" placeholder="url to invoice document" required>
                                         </div>
                                     </div>
                                 </div>
