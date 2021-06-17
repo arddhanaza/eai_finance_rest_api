@@ -51,6 +51,7 @@ Route::post('pengajuan_dana', [PengajuanDanaController::class, 'create']);
 Route::get('pengajuan_dana', [PengajuanDanaController::class, 'index']);
 Route::put('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'update']);
 Route::delete('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'delete']);
+Route::get('pengajuan_dana/{id_pengajuan}', [PengajuanDanaController::class, 'show_by_id']);
 
 Route::post('pengajuan_dana', [PengajuanDanaController::class, 'create'])->name('api_buat_pengajuan');
 Route::get('pengajuan_dana', [PengajuanDanaController::class, 'index']);
