@@ -44,11 +44,18 @@ class TanggunganController extends Controller
 
     public function show_by_divisi($nama_divisi){
         if (divisi::where('nama_divisi',$nama_divisi)->exists()){
-            $tanggungan = tanggungan::get_by_divisi($nama_divisi);
-            return response($tanggungan,200);
+            $id_asset = tanggungan::get_by_divisi($nama_divisi);
+            if (tanggungan::where('id_asset', $id_asset)->exists()) {
+                $tanggungan = tanggungan::get_by_divisi($nama_divisi);
+                return response($tanggungan,200);
+            }else{
+                return response()->json([
+                    "message" => "Tanggungan not found"
+                ], 404);
+            }
         }else{
             return response()->json([
-                "message" => "Tanggungan not found"
+                "message" => "Divisi not found"
             ], 404);
         }
     }

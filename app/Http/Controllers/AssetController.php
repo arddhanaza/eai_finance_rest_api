@@ -18,7 +18,7 @@ class AssetController extends Controller
 
     public function show_by_id($id_assets){
         if (asset::where('id_asset', $id_assets)->exists()) {
-            $asset = asset::where('id_asset', $id_assets);
+            $asset = asset::where('id_asset', $id_assets)->get();
             return response($asset, 200);
         } else {
             return response()->json([
@@ -107,7 +107,6 @@ class AssetController extends Controller
             'tipe_asset' => $request->tipe_asset,
             'id_divisi' => $request->id_divisi
         ])->status();
-        dd($update_asset);
         return redirect(route('get_data_asset'));
     }
 

@@ -33,9 +33,6 @@ class tanggungan extends Model
             ->select('id_asset')
             ->where('id_divisi','=',$id_divisi->id_divisi)
             ->first();
-        $tanggungan = DB::table('tanggungans')
-            ->where('id_asset','=',$id_asset->id_asset)
-            ->get();
-        return $tanggungan;
+        return $id_asset;
     }
 }
