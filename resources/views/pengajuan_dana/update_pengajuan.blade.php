@@ -1,111 +1,104 @@
 @extends('templates.template')
 @section('title','Update Data Pengajuan Dana')
 @section('header')
-    <div class="header bg-primary pb-6">
-        <div class="container-fluid">
-            <div class="header-body">
-                <div class="row align-items-center py-4">
-                    <div class="col-lg-6 col-7">
-                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="#">Update Data Pengajuan Dana</a></li>
-                            </ol>
-                        </nav>
-                    </div>
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">Update Data Pengajuan Dana</a></li>
+                        </ol>
+                    </nav>
                 </div>
-                <!-- Card stats -->
-                <div class="row">
-                    <div class="col-xl-3 col-md-6">
-                    </div>
+            </div>
+            <!-- Card stats -->
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection
 @section('content')
-    <div class="container-fluid mt--6">
-        <div class="row">
-            <div class="col-xl-12 order-xl-1">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h3 class="mb-0">Update Data Pengajuan Dana</h3>
-                            </div>
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-xl-12 order-xl-1">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Update Data Pengajuan Dana</h3>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <form action="{{route('save_update_data_pengajuan',$data_pengajuan->id_pengajuan)}}" method="put">
-                            @csrf
-                            @method('put')
-                            <h6 class="heading-small text-muted mb-4">Data Tanggungan</h6>
-                            <div class="pl-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="status_tanggungan">Status Tanggungan</label>
-                                            <select name="status_tanggungan" id="status_tanggungan" class="form-control">
-                                                <option value="{{$data_tanggungan->status_tanggungan}}" selected>{{$data_tanggungan->status_tanggungan}}</option>
-                                                <option value="Lunas">Lunas</option>
-                                            </select>
-                                            <input type="hidden" name="id_tanggungan" value="{{$data_tanggungan->id_tanggungan}}">
-                                        </div>
+                </div>
+                <div class="card-body">
+                    <form action="{{route('save_update_data_pengajuan',$data_pengajuan->id_pengajuan)}}" method="put">
+                        @csrf
+                        @method('put')
+                        <h6 class="heading-small text-muted mb-4">Pengajuan Dana</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="id_divisi">Divisi</label>
+                                        <select class="form-control form-control" name="id_divisi" id="id_divisi" required>
+                                            @foreach($data_divisi as $divisi)
+                                            <option value="{{$divisi->id_divisi}}">{{$divisi->nama_divisi}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="periode_tanggungan">Periode Tanggungan</label>
-                                            <input type="text" class="form-control" name="periode_tanggungan"
-                                                   id="periode_tanggungan" required value="{{$data_tanggungan->periode_tanggungan}}">
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="penanggung_jawab">Penanggung Jawab</label>
+                                        <input type="text" class="form-control" name="penanggung_jawab" id="penanggung_jawab" required value="">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="tujuan_tanggungan">Tujuan Tanggungan</label>
-                                            <input type="text" class="form-control" name="tujuan_tanggungan"
-                                                   id="tujuan_tanggungan" required value="{{$data_tanggungan->tujuan_tanggungan}}">
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="nomor_rekening">Nomor Rekening</label>
+                                        <input type="number" class="form-control" name="nomor_rekening" id="nomor_rekening" required value="">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="total_tanggungan">Total Tanggungan</label>
-                                            <input type="number" class="form-control" name="total_tanggungan"
-                                                   id="total_tanggungan" value="{{$data_tanggungan->total_tanggungan}}">
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="keterangan">Keterangan</label>
+                                        <textarea class="form-control" name="keterangan" id="keterangan" required value=""></textarea>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="id_asset">Nama Asset</label>
-                                            <input type="hidden" class="form-control" name="id_asset"
-                                                   id="id_asset" value="{{$data_tanggungan->id_asset}}" readonly>
-                                            <input type="text" class="form-control" name=""
-                                                   id="" value="{{$data_tanggungan->nama_asset}}" readonly>
-                                            <input type="hidden" name="id_divisi" value="{{$data_tanggungan->id_divisi}}">
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="tanggal_pengajuan">Tanggal Pengajuan</label>
+                                        <input type="date" class="form-control" name="tanggal_pengajuan" id="tanggal_pengajuan" required value="">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <div class="col-12 text-right">
-                                                <button class="btn btn-sm btn-primary" type="submit">Update</button>
-                                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="col-12 text-right">
+                                            <button class="btn btn-sm btn-primary" type="submit">Submit</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

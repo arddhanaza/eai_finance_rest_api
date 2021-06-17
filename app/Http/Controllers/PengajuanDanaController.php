@@ -30,7 +30,6 @@ class PengajuanDanaController extends Controller
         }
     }
 
-
     public function save_tambah_data_pengajuan(Request $request){
         $pengajuan_dana = new pengajuan_dana();
         $pengajuan_dana->id_divisi = $request->id_divisi;
@@ -43,8 +42,7 @@ class PengajuanDanaController extends Controller
     }
 
     public function delete_pengajuan($id_pengajuan){
-        $pengajuan_dana = pengajuan_dana::find($id_pengajuan);
-        $pengajuan_dana->delete();
+        $request = Http::delete('http://eai-finance.arddhanaaa.com/public/api/pengajuan_dana/'.$id_pengajuan);
 
         // return 'Data Berhasil Dihapus';
         return redirect(route('get_data_pengajuan_dana'));
@@ -55,8 +53,9 @@ class PengajuanDanaController extends Controller
         $pengajuan_dana = Http::get('http://eai-finance.arddhanaaa.com/public/api/pengajuan_dana/'.$id_pengajuan)->json();
         $key = key($pengajuan_dana);
         $pengajuan_dana = (object) $pengajuan_dana[$key];
-
-        return view('pengajuan_dana.update_pengajuan',['data_pengajuan'=>$pengajuan_dana]);
+        
+        $divisi = divisi::all();
+        return view('pengajuan_dana.update_pengajuan',['data_pengajuan'=>$pengajuan_dana,'data_divisi'=>$divisi]);
     }
 
     public function save_update_data_pengajuan(Request $request, $id_pengajuan)
@@ -68,7 +67,7 @@ class PengajuanDanaController extends Controller
             'keterangan' => $request->keterangan,
             'tanggal_pengajuan' => $request->tanggal_pengajuan
         ])->status();
-        return redirect(route('get_data_tanggungan'));
+        return redirect(route('get_data_pengajuan_dana'));
     }
 
     // ----------
