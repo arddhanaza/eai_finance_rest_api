@@ -20,8 +20,14 @@ use App\Http\Controllers\DetailPembayaranTanggunganController;
 */
 
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index'])->name('api_list');
-Route::get('/asset/{divisi}',[\App\Http\Controllers\AssetController::class,'tambah'])->name('tambah_asset');
-//Route::post('asset/{divisi}',[\App\Http\Controllers\AssetController::class,'save'])->name('save_asset');
+
+Route::get('/asset/',[AssetController::class,'get_data_asset'])->name('get_data_asset');
+Route::get('/asset/tambah',[AssetController::class,'create_data_asset'])->name('tambah_data_asset');
+Route::post('/asset/tambah/save',[AssetController::class,'save_create_data_asset'])->name('save_tambah_data_asset');
+Route::get('/asset/edit/{id_asset}',[AssetController::class,'edit_data_asset'])->name('edit_data_asset');
+Route::get('/asset/edit/{id_asset}/save',[AssetController::class,'save_edit_data_asset'])->name('save_edit_data_asset');
+Route::get('/asset/delete/{id_asset}',[AssetController::class,'delete_asset'])->name('delete_data_asset');
+
 
 Route::get('/pengajuan_dana/', [PengajuanDanaController::class,'get_data_pengajuan_dana'])->name('get_data_pengajuan_dana');
 Route::get('/pengajuan_dana/tambah',[PengajuanDanaController::class,'tambah_data_pengajuan'])->name('view_tambah_pengajuan');

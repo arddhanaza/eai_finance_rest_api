@@ -47,8 +47,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link "
-                           href="">
+                        <a class="nav-link {{ Route::is('get_data_asset') ? 'active' : '' }}"
+                           href="{{route('get_data_asset')}}">
                             <i class="ni ni-paper-diploma text-primary"></i>
                             <span class="nav-link-text">Asset</span>
                         </a>
