@@ -147,6 +147,13 @@
                                     <li><a href="{{route('view_tambah_bukti_pembayaran')}}">example</a></li>
                                 </ul>
                             </li>
+                            <li class="list-group-item">PUT/UPDATE
+                                <ul class="list-group-horizontal-">
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran">https://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran/{id_pembayaran}</a>
+                                    </li>
+                                    <li><a href="{{route('get_data_bukti_pembayaran')}}">example</a></li>
+                                </ul>
+                            </li>
                             <li class="list-group-item">DELETE
                                 <ul class="list-group-horizontal-">
                                     <li><a href="https://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran">https://eai-finance.arddhanaaa.com/public/api/bukti_pembayaran/{id_pembayaran}</a>
