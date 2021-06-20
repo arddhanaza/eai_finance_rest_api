@@ -75,7 +75,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="waktu_transaksi">Waktu Transaksi</label>
-                                            <input type="datetime-local" class="form-control" pattern="[0-9]{4}:[0-9]{2}:[0-9]{2}T[0-9]{2}:[0-9]{2}" id="waktu_transaksi" name="waktu_transaksi" value="{{ $transaksi->waktu_transaksi }}">
+                                            <input type="datetime-local" class="form-control" pattern="[0-9]{4}:[0-9]{2}:[0-9]{2}T[0-9]{2}:[0-9]{2}" id="waktu_transaksi" name="waktu_transaksi" value="{{ Illuminate\Support\Str::replace(' ', 'T', $transaksi->waktu_transaksi) }}">
                                         </div>
                                     </div>
                                 </div>
