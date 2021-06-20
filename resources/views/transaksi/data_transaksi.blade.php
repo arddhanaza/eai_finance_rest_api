@@ -58,7 +58,7 @@
                                 <tr>
                                     <td class="budget">{{$loop->index+1}}</td>
                                     <td>{{$transaksi->tipe_transaksi}}</td>
-                                    <td>{{$transaksi->id_divisi}}</td>
+                                    <td>{{$transaksi->nama_divisi}}</td>
                                     <td>{{$transaksi->waktu_transaksi}}</td>
                                     <td>{{$transaksi->total}}</td>
                                     <td class="text-wrap">{{$transaksi->deskripsi}}</td>
