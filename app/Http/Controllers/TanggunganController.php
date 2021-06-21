@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use phpDocumentor\Reflection\DocBlock\Tags\Method;
 use phpDocumentor\Reflection\Types\True_;
+use function PHPUnit\Framework\isEmpty;
 
 class TanggunganController extends Controller
 {
@@ -46,21 +47,15 @@ class TanggunganController extends Controller
 
     public function show_by_divisi($nama_divisi){
         if (divisi::where('nama_divisi',$nama_divisi)->exists()){
-            $id_asset = tanggungan::get_by_divisi($nama_divisi);
-            if (tanggungan::where('id_asset', $id_asset)->exists()) {
-                $tanggungan = tanggungan::get_by_divisi($nama_divisi);
-                return response($tanggungan,200);
-            }else{
-                return response()->json([
-                    "message" => "Tanggungan not found"
-                ], 404);
-            }
+            $tanggungan = tanggungan::get_data_tanggungan()->where('nama_divisi', 'LIKE', $nama_divisi);
+            return response()->json($tanggungan,200);
         }else{
             return response()->json([
-                "message" => "Divisi not found"
+                "message" => "Divisi or Tanggungan not found"
             ], 404);
         }
     }
+
 
     public function create(Request $request)
     {

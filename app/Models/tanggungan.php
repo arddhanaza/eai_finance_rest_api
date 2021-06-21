@@ -23,16 +23,4 @@ class tanggungan extends Model
             ->get();
         return $data;
     }
-
-    public static function get_by_divisi($nama_divisi){
-        $id_divisi = DB::table('divisis')
-            ->select('id_divisi')
-            ->where('nama_divisi','=',$nama_divisi)
-            ->first();
-        $id_asset = DB::table('assets')
-            ->select('id_asset')
-            ->where('id_divisi','=',$id_divisi->id_divisi)
-            ->first();
-        return $id_asset;
-    }
 }
