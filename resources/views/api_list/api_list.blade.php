@@ -116,8 +116,8 @@
                                     <li>
                                         <a href="https://eai-finance.arddhanaaa.com/public/api/{divisi}/tanggungan">https://eai-finance.arddhanaaa.com/public/api/{divisi}/tanggungan/</a>
                                     </li>
-                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/finance/tanggungan">example
-                                            -> get tanggungan milih divisi finance</a>
+                                    <li><a href="https://eai-finance.arddhanaaa.com/public/api/warehouse/tanggungan">example
+                                            -> get tanggungan milih divisi warehouse</a>
                                     </li>
                                 </ul>
                                 <span class="text-warning">*{divisi} diganti dengan nama divisi: finance, procurement, warehouse, logistik</span>
