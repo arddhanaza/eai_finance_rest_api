@@ -9,4 +9,5 @@ class detail_pembayaran_tanggungan extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id_pembayaran';
+    protected $table = 'detail_pembayaran_tanggungans';
 }

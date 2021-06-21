@@ -62,7 +62,7 @@
                                     <td>{{$dt->tujuan_tanggungan}}</td>
                                     <td>{{$dt->total_tanggungan}}</td>
                                     <td>
-                                        @if($dt->status_tanggungan == "")
+                                        @if($dt->status_tanggungan == 'Belum Lunas')
                                             <a href="{{route('bayar_tanggungan',$dt->id_tanggungan)}}"
                                                type="button" class="btn-sm btn-primary">Bayar</a>
                                         @endif

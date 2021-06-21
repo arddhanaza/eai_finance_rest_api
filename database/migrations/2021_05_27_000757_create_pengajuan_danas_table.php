@@ -19,6 +19,7 @@ class CreatePengajuanDanasTable extends Migration
             $table->string('nomor_rekening');
             $table->text('keterangan');
             $table->date('tanggal_pengajuan');
+            $table->bigInteger('jumlah_dana');
             $table->foreignId('id_divisi')
                 ->references('id_divisi')->on('divisis')
                 ->onUpdate('cascade')

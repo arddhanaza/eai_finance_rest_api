@@ -81,6 +81,16 @@
                                     <li><a href="{{route('get_data_tanggungan')}}">example</a></li>
                                 </ul>
                             </li>
+                            <li class="list-group-item">POST PELUNASAN TANGGUNGAN
+                                <ul class="list-group-horizontal-">
+                                    <li>
+                                        <a href="https://eai-finance.arddhanaaa.com/public/api/tanggungan/pay/{id_tanggungan}">https://eai-finance.arddhanaaa.com/public/api/tanggungan/pay/{id_tanggungan}</a>
+                                    </li>
+                                    <li><a href="{{route('get_data_tanggungan')}}">example</a>
+                                    </li>
+                                </ul>
+                                <span class="text-warning">*{id_tanggungan} diganti dengan id_tanggungan, dengan kebutuhan parameter antara lain total, total_pembayaran, deskripsi, id_divisi, id_tanggungan</span>
+                            </li>
                             <li class="list-group-item">GET BY ID TANGGUNGAN
                                 <ul class="list-group-horizontal-">
                                     <li>

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\asset;
+use App\Models\detail_pembayaran_tanggungan;
 use App\Models\divisi;
 use App\Models\tanggungan;
+use App\Models\transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use phpDocumentor\Reflection\DocBlock\Tags\Method;
@@ -104,20 +106,20 @@ class TanggunganController extends Controller
 
     public function get_data_tanggungan()
     {
-        $tanggungan = Http::get('http://eai-finance.arddhanaaa.com/public/api/tanggungan/')->object();
+        $tanggungan = Http::get('https://eai-finance.arddhanaaa.com/public/api/tanggungan/')->object();
 //        dd($tanggungan[0]->id_tanggungan);
         return view('pembayaran_tanggungan.pembayaran_tanggungan', ['data_tanggungan' => $tanggungan]);
     }
 
     public function tambah_data_tanggungan()
     {
-        $assets = Http::get('http://eai-finance.arddhanaaa.com/public/api/assets')->object();
+        $assets = Http::get('https://eai-finance.arddhanaaa.com/public/api/assets')->object();
         return view('pembayaran_tanggungan.tambah_data_tanggungan', ['data_asset' => $assets]);
     }
 
     public function save_tambah_data_tanggungan(Request $request)
     {
-        $response = Http::post('http://eai-finance.arddhanaaa.com/public/api/tanggungan', [
+        $response = Http::post('https://eai-finance.arddhanaaa.com/public/api/tanggungan', [
             'status_tanggungan' => $request->status_tanggungan,
             'periode_tanggungan' => $request->periode_tanggungan,
             'tujuan_tanggungan' => $request->tujuan_tanggungan,
@@ -129,7 +131,7 @@ class TanggunganController extends Controller
 
     public function update_data_tanggungan($id_tanggungan)
     {
-        $tanggungan = Http::get('http://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan)->json();
+        $tanggungan = Http::get('https://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan)->json();
         $key = key($tanggungan);
         $tanggungan = (object) $tanggungan[$key];
 
@@ -138,7 +140,7 @@ class TanggunganController extends Controller
 
     public function save_update_data_tanggungan(Request $request, $id_tanggungan)
     {
-        $update_tanggungan = Http::put('http://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan, [
+        $update_tanggungan = Http::put('https://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan, [
             'status_tanggungan' => $request->status_tanggungan,
             'periode_tanggungan' => $request->periode_tanggungan,
             'tujuan_tanggungan' => $request->tujuan_tanggungan,
@@ -148,57 +150,55 @@ class TanggunganController extends Controller
         return redirect(route('get_data_tanggungan'));
     }
 
-    public function update_status_tanggungan($id_tanggungan)
-    {
-        $update_tanggungan = Http::put('http://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan, [
-            'status_tanggungan' => 'Lunas',
-            'total_tanggungan' => 0
-        ])->status();
-        return $update_tanggungan;
-    }
-
     public function view_bayar_tanggungan($id_tanggungan)
     {
         $tanggungan = Http::get('https://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan)->json();
-        $tanggungan = (object) $tanggungan[1];
+        $key = key($tanggungan);
+        $tanggungan = (object) $tanggungan[$key];
         return view('pembayaran_tanggungan.tambah_pembayaran_tanggungan', ['data_tanggungan' => $tanggungan]);
     }
 
     public function save_bayar_tanggungan($id_tanggungan, Request $request)
     {
-        $total = $request->total;
-        $post = Http::post('http://eai-finance.arddhanaaa.com/public/api/transaksi', [
-            'tipe_transaksi' => 'Pembayaran Tanggungan',
+        $response = Http::post('https://eai-finance.arddhanaaa.com/public/api/tanggungan/pay/'.$id_tanggungan, [
             'total' => $request->total,
             'deskripsi' => $request->deskripsi,
-            'bukti_invoice' => 'blank',
-            'id_divisi' => $request->id_divisi
-        ])->status();
-
-        $data_transaksi = Http::get('http://eai-finance.arddhanaaa.com/public/api/transaksi')->object();
-        $id_transaksi = $data_transaksi[count($data_transaksi)-1]->id_transaksi;
-
-        $post_detail = self::post_detail_transaksi($id_transaksi,$id_tanggungan,$total);
-        $update_status = self::update_status_tanggungan($id_tanggungan);
-        return redirect(route('get_data_tanggungan'));
-    }
-
-    public function post_detail_transaksi($id_transaksi, $id_tanggungan, $total){
-        $post_detail_transaksi = Http::post('https://eai-finance.arddhanaaa.com/public/api/detail_tanggungan/', [
-            'id_transaksi' => $id_transaksi,
+            'id_divisi' => $request->id_divisi,
             'id_tanggungan' => $id_tanggungan,
-            'total_pembayaran' => $total
+            'total_pembayaran' => $request->total,
         ])->status();
-        return $post_detail_transaksi;
+        return redirect(route('get_data_tanggungan'));
     }
 
     public function delete_tanggungan($id_tanggungan){
-        $request = Http::delete('http://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan);
+        $request = Http::delete('https://eai-finance.arddhanaaa.com/public/api/tanggungan/'.$id_tanggungan);
         return redirect(route('get_data_tanggungan'));
     }
 
-    public function proses_bayar_tanggungan()
+    public function proses_bayar_tanggungan(Request $request, $id_tanggungan)
     {
-        return true; //generate API
+
+        $total = $request->total;
+
+        $transaksi = new transaksi();
+        $transaksi->tipe_transaksi = 'Kredit';
+        $transaksi->total = $total;
+        $transaksi->deskripsi = $request->deskripsi;
+        $transaksi->bukti_invoice = '';
+        $transaksi->id_divisi = $request->id_divisi;
+        $transaksi->save();
+        $last_transaction_id = $transaksi->id_transaksi;
+
+        $detail_pembayaran = new detail_pembayaran_tanggungan();
+        $detail_pembayaran->id_transaksi = $last_transaction_id;
+        $detail_pembayaran->id_tanggungan = $id_tanggungan;
+        $detail_pembayaran->total_pembayaran = $total;
+        $detail_pembayaran->save();
+
+        $tanggungan = tanggungan::find($id_tanggungan);
+        $tanggungan->status_tanggungan = 'Lunas';
+        $tanggungan->save();
+
+        return response()->json($detail_pembayaran, 201);
     }
 }
