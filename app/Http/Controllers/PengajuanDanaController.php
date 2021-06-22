@@ -54,7 +54,7 @@ class PengajuanDanaController extends Controller
         $pengajuan_dana = Http::get('http://eai-finance.arddhanaaa.com/public/api/pengajuan_dana/'.$id_pengajuan)->json();
         $key = key($pengajuan_dana);
         $pengajuan_dana = (object) $pengajuan_dana[$key];
-        
+
         $divisi = divisi::all();
         return view('pengajuan_dana.update_pengajuan',['data_pengajuan'=>$pengajuan_dana,'data_divisi'=>$divisi]);
     }
@@ -87,6 +87,7 @@ class PengajuanDanaController extends Controller
         $pengajuan_dana->penanggung_jawab = $request->penanggung_jawab;
         $pengajuan_dana->nomor_rekening = $request->nomor_rekening;
         $pengajuan_dana->keterangan = $request->keterangan;
+        $pengajuan_dana->jumlah_dana = $request->jumlah_dana;
         $pengajuan_dana->tanggal_pengajuan = $request->tanggal_pengajuan;
         $pengajuan_dana->save();
 
