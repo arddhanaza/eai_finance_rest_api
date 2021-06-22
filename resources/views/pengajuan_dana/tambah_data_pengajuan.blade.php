@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('api_buat_pengajuan')}}" method="post">
+                    <form action="{{route('save_tambah_pengajuan')}}" method="post">
                         @csrf
                         @method("post")
                         <h6 class="heading-small text-muted mb-4">Pengajuan Dana</h6>
@@ -85,7 +85,7 @@
                                         <textarea class="form-control" name="keterangan" id="keterangan" required value=""></textarea>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -93,7 +93,7 @@
                                         <input type="date" class="form-control" name="tanggal_pengajuan" id="tanggal_pengajuan" required value="">
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
