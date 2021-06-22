@@ -57,15 +57,23 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="penanggung_jawab">Penanggung Jawab</label>
-                                        <input type="text" class="form-control" name="penanggung_jawab" id="penanggung_jawab" required value="">
+                                        <input type="text" class="form-control" name="penanggung_jawab" id="penanggung_jawab" required placeholder="{{$data_pengajuan->penanggung_jawab}}">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
+                                        <label class="form-control-label" for="jumlah_dana">Jumlah Dana</label>
+                                        <input type="text" class="form-control" name="jumlah_dana" id="jumlah_dana" required placeholder="{{$data_pengajuan->jumlah_dana}}">
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
                                         <label class="form-control-label" for="nomor_rekening">Nomor Rekening</label>
-                                        <input type="number" class="form-control" name="nomor_rekening" id="nomor_rekening" required value="">
+                                        <input type="number" class="form-control" name="nomor_rekening" id="nomor_rekening" required placeholder="{{$data_pengajuan->nomor_rekening}}">
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +81,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="keterangan">Keterangan</label>
-                                        <textarea class="form-control" name="keterangan" id="keterangan" required value=""></textarea>
+                                        <textarea class="form-control" name="keterangan" id="keterangan" required placeholder="{{$data_pengajuan->keterangan}}"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +89,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label" for="tanggal_pengajuan">Tanggal Pengajuan</label>
-                                        <input type="date" class="form-control" name="tanggal_pengajuan" id="tanggal_pengajuan" required value="">
+                                        <input type="date" class="form-control" name="tanggal_pengajuan" id="tanggal_pengajuan" required placeholder="{{$data_pengajuan->tanggal_pengajuan}}">
                                     </div>
                                 </div>
                             </div>

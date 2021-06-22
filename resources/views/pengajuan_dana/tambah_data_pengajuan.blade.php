@@ -65,6 +65,14 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
+                                        <label class="form-control-label" for="jumlah_dana">Jumlah Dana</label>
+                                        <input type="number" class="form-control" name="jumlah_dana" id="jumlah_dana" required value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
                                         <label class="form-control-label" for="nomor_rekening">Nomor Rekening</label>
                                         <input type="number" class="form-control" name="nomor_rekening" id="nomor_rekening" required value="">
                                     </div>

@@ -45,6 +45,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Divisi</th>
                                 <th scope="col">Penanggung Jawab</th>
+                                <th scope="col">Jumlah Dana</th>
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Nomor Rekening</th>
                                 <th scope="col">Tanggal Pengajuan</th>
@@ -57,6 +58,7 @@
                                     <td class="budget">{{$loop->index+1}}</td>
                                     <td>{{$pd->nama_divisi}}</td>
                                     <td>{{$pd->penanggung_jawab}}</td>
+                                    <td>{{$pd->jumlah_dana}}</td>
                                     <td>{{$pd->keterangan}}</td>
                                     <td>{{$pd->nomor_rekening}}</td>
                                     <td>{{$pd->tanggal_pengajuan}}</td>

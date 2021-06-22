@@ -12,10 +12,14 @@ class pengajuan_dana extends Model
     protected $table = 'pengajuan_danas';
     protected $primaryKey = 'id_pengajuan';
 
+    protected $fillable = [
+        'jumlah_dana'
+    ];
+    
     public static function get_data_pengajuan_dana()
     {
         $data = DB::table('pengajuan_danas')
-            ->select('pengajuan_danas.id_pengajuan', 'divisis.nama_divisi', 'penanggung_jawab', 'keterangan',
+            ->select('pengajuan_danas.id_pengajuan', 'divisis.nama_divisi', 'penanggung_jawab', 'jumlah_dana', 'keterangan',
                 'nomor_rekening', 'tanggal_pengajuan', 'divisis.id_divisi')            
             ->join('divisis', 'divisis.id_divisi', '=', 'pengajuan_danas.id_divisi')
             ->get();
